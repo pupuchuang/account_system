@@ -1,0 +1,83 @@
+<%- include ../layouts/header.ejs %>
+<div class="wrapper">
+<%- include ../layouts/sidebar.ejs %>	
+<div class="content">
+    <div class="container-fluid">
+
+       <div class="row">
+       <div class="col-md-12">
+        <a href="/newEmployee" class="btn btn-default btn-sm pull-right" id="add_emp"><i class="fa fa-plus-circle"></i> Add Employee</a>
+       </div>
+            <div class="col-md-12">
+                <div class="card">
+                <!-- Advanced Tables -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                              Employee Table
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                    <thead>
+                                        <tr>
+                                            <th>id</th>
+                                            <th>Department</th>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th id ="admin_action"><i class="fa fa-pencil-square-o"></i> Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                         <% for ( var i = 0 ; i < data.length ; i++){ %>
+                                            <tr>
+                                                <td>
+                                                    <%= data[i].id  %>
+                                                </td>
+                                                <td>
+                                                    <%= data[i].departName  %>
+                                                </td>
+                                                <td>
+                                                    <%= data[i].UserName  %>
+                                                </td>
+                                                <td>
+                                                    <%= data[i].UserEmail  %>
+                                                </td>
+                                                <td>
+                                                    <input class="btn btn-warning btn-xs" type="button" name="edit" value="Edit" onclick="Edit('<%= data[i].id  %>');" />
+
+                                                    <input type="button" class="btn btn-warning btn-xs" name="delete" value="Delete" onclick="Delete('<%= data[i].id %>');" />
+                                                </td>
+                                            </tr>
+                                        <% } %>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--End Advanced Tables -->
+            </div>
+        </div>
+    </div>
+</div>
+    
+<%- include ../layouts/footer.ejs %>
+    <script>
+       $(document).ready(function () {
+            $('#dataTables-example').dataTable();
+        });
+
+         function Delete(id) {
+            var rs = confirm('Confirm to delete?');
+            if (rs) {
+                window.location.href = "/userDelete?id=" + id;
+            }
+        }
+        
+        function Edit(id) {
+            window.location.href = "/userEdit?id=" + id;
+        }
+    </script>
+     
+     
+       

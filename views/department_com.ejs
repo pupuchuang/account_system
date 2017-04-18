@@ -1,0 +1,63 @@
+<%- include ../layouts/header.ejs %>
+<div class="wrapper">
+<%- include ../layouts/sidebar.ejs %>	
+<div class="content">
+    <div class="container-fluid">
+       <div class="row">
+        <div class="col-md-12">
+        </div>
+            <div class="col-md-12">
+                <div class="card">
+                <!-- Advanced Tables -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                             Department Tables
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                    <thead>
+                                        <tr>
+                                            <th>Department</th>
+                                            <th>Group Mail</th>
+                                        </tr>
+                                    </thead>
+                                     <tbody>
+                                         <% for ( var i = 0 ; i < data.length ; i++){ %>
+                                            <tr>
+                                                <td>
+                                                    <%= data[i].departName  %>
+                                                </td>
+                                                <td><span class="label label-info">
+                                                    <%= data[i].groupMail  %></span>
+                                                </td>
+                                            </tr>
+                                        <% } %>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                <!--End Advanced Tables -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<%- include ../layouts/footer.ejs %>
+     <script>
+       $(document).ready(function () {
+            $('#dataTables-example').dataTable();
+        });
+
+         function Delete(id) {
+            var rs = confirm('Confirm to delete?');
+            if (rs) {
+                window.location.href = "/deptDelete?id=" + id;
+            }
+        }
+        
+        function Edit(id) {
+            window.location.href = "/deptEdit?id=" + id;
+        }
+    </script>

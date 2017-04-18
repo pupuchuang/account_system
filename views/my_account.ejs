@@ -1,0 +1,77 @@
+<%- include ../layouts/header.ejs %>
+<div class="wrapper">
+<%- include ../layouts/sidebar.ejs %>	
+    
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-8 col-md-7">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Edit Profile</h4>
+                    </div>
+                    <div class="content">
+                        <form action="my_account" method="post" id="employee_form" >
+                            <input type="hidden" name="id" value="<%=data[0].id %>" />    
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input type="text" name="my_name" id="my_name" class="form-control border-input" disabled placeholder="Name" value="<%=data[0].UserName %>">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <div class="form-group">
+                                    <label>Department</label>
+                                    <input type="text" name="my_dept" id="my_dept" class="form-control border-input" disabled placeholder="Department" value="<%=data[0].departName %>">
+                                </div>
+                            </div>	
+                        </div>
+                    </div>
+                            
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" name="my_email" id="my_email" class="form-control border-input" disabled placeholder="Email" value="<%=data[0].UserEmail %>">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input type="text" name="my_pwd" id="my_pwd" class="form-control border-input" disabled placeholder="Password" value="<%=data[0].UserPass %>">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>New Password</label>
+                                <input type="text" name="myNew_pwd" id="myNew_pwd" class="form-control border-input" placeholder="Password" value="">
+                            </div>
+                        </div>
+                    </div>        
+                     <div class="form-group form-group-sm">
+                          <div class="text-center" >  
+                            <button type="submit" class="btn btn-sm btn-success">Submit</button>
+                            <button type="reset" class="btn btn-sm btn-danger">Reset</button>
+                            <button type="button" class="btn btn-sm btn-warning pull-right"  onclick="window.location.href='/login'">Go back</button>
+                        </div>
+                    </div>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<%- include ../layouts/footer.ejs %>
+   
+

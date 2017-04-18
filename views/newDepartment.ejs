@@ -1,0 +1,50 @@
+<%- include ../layouts/header.ejs %>
+<div class="wrapper">
+<%- include ../layouts/sidebar.ejs %>	
+    
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-8 col-md-7">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">New Department</h4>
+                    </div>
+                    <div class="content">
+                         <form action="newDepartment" method="post" id="dept_form" >
+                             <input type="hidden" name="id" value="<%=data[0].id %>" />    
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Deaprtment Name</label>
+                                          <input type="text" class="form-control validate[required]" name="dept_name" id="dept_name" maxlength="30">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Group Email</label>
+                                        <input type="email" class="form-control validate[required,custom[email]]" name="dept_email" id="dept_email" placeholder="">
+                                    </div>
+                                </div>
+                            </div>
+
+                             <div class="form-group form-group-sm">
+                                <div class="text-center" >  
+                                    <button type="submit" class="btn btn-sm btn-success">Submit</button>
+                                    <button type="reset" class="btn btn-sm btn-danger">Reset</button>
+                                    <button type="button" class="btn btn-sm btn-warning pull-right" onclick="javascript:history.back();">Go back</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<%- include ../layouts/footer.ejs %>
+   
+
