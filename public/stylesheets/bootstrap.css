@@ -2374,8 +2374,8 @@ output {
 .form-control:focus {
   border-color: #66afe9;
   outline: 0;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px #940000;
-          box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px #940000;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px #D9EDF7;
+          box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px #D9EDF7;
 }
 .form-control::-moz-placeholder {
   color: #999;
@@ -2848,9 +2848,9 @@ fieldset[disabled] .btn-default.active {
   background-color: #333;
 }
 .btn-primary {
-  color: #fff;
-  background-color: #3E3E3E;
-  border-color: #2e6da4;
+  color: #2E6DA4;
+  background-color: #D9EDF7;
+  border-color: #D9EDF7;
 }
 .btn-primary:hover,
 .btn-primary:focus,
@@ -2858,9 +2858,9 @@ fieldset[disabled] .btn-default.active {
 .btn-primary:active,
 .btn-primary.active,
 .open > .dropdown-toggle.btn-primary {
-  color: #fff;
-  background-color: #313131;
-  border-color: #940000;
+  color: #2E6DA4;
+  background-color: #BCE8F1;
+  border-color: #D9EDF7;
 }
 .btn-primary:active,
 .btn-primary.active,
@@ -2886,7 +2886,7 @@ fieldset[disabled] .btn-primary:active,
 .btn-primary[disabled].active,
 fieldset[disabled] .btn-primary.active {
   background-color: #337ab7;
-  border-color: #2e6da4;
+  border-color: #D9EDF7;
 }
 .btn-primary .badge {
   color: #337ab7;

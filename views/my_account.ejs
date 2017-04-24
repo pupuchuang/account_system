@@ -45,7 +45,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label>Password</label>
-                                <input type="text" name="my_pwd" id="my_pwd" class="form-control border-input" disabled placeholder="Password" value="<%=data[0].UserPass %>">
+                                <input type="text" name="my_pwd" id="my_pwd" class="form-control border-input"  maxlength="20" disabled placeholder="Password" value="<%=data[0].UserPass %>">
                             </div>
                         </div>
                     </div>
@@ -53,13 +53,28 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label>New Password</label>
-                                <input type="text" name="myNew_pwd" id="myNew_pwd" class="form-control border-input" placeholder="Password" value="">
+                                <input type="password" name="myNew_pwd" id="myNew_pwd" class="form-control border-input tooltip-test"  data-toggle="tooltip" title="The field is requird" maxlength="20" placeholder="Password" value="">
                             </div>
                         </div>
+                    </div>
+                     <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Confirm New Password</label>
+                                <input type="password" name="con_myNew_pwd" id="con_myNew_pwd" class="form-control border-input tooltip-test"   data-toggle="tooltip" title="The field is requird" maxlength="20" placeholder="Password"  onblur="showError()" value="">
+                            </div>  
+                        </div>
+                    </div>  
+                    <div class="row ">
+                       <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
+                            <% if (locals.error) { %>
+                                <div class="alert alert-danger"> <%= error %></div>         
+                            <% } %>
+                       </div>
                     </div>        
-                     <div class="form-group form-group-sm">
+                    <div class="form-group form-group-sm">
                           <div class="text-center" >  
-                            <button type="submit" class="btn btn-sm btn-success">Submit</button>
+                            <button type="submit" id="emp_submit" class="btn btn-sm btn-success">Submit</button>
                             <button type="reset" class="btn btn-sm btn-danger">Reset</button>
                             <button type="button" class="btn btn-sm btn-warning pull-right"  onclick="window.location.href='/login'">Go back</button>
                         </div>
@@ -73,5 +88,17 @@
     </div>
 </div>
 <%- include ../layouts/footer.ejs %>
-   
 
+    <script>
+        $(function () { $("[data-toggle='tooltip']").tooltip(); });
+         toastr.options.positionClass = 'toast-bottom-left';
+        
+        function showError(){
+            var p1=document.getElementById("myNew_pwd").value;
+            var p2=document.getElementById("con_myNew_pwd").value;
+            
+            if(p1!=p2)
+                 alert('You have the wrong confirm passowrd!');  
+        }
+        
+    </script>

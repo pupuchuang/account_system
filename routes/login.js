@@ -9,7 +9,7 @@ router.get('/', function(req, res) {
 	res.locals.username=req.session.user;
 	res.locals.error=req.session.error;
 	res.locals.id=req.session.id;
-	res.render('login', {title:title});
+	res.render('login', {title:title,page_name: 'home'});
 });
 
 
@@ -23,6 +23,8 @@ router.post('/', function(req, res) {
     User.getUserByUserName(userName, db, function (err, results) {                           
         if(results == '') {
             res.locals.error = '使用者不存在';
+			req.session.error ='使用者不存在';
+			console.log(req.session.error);
 			res.redirect('/');
             res.render('login',{title:title});
             return;

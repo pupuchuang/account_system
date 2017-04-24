@@ -7,14 +7,14 @@
         </div>
 
         <ul class="nav">
-           <li class="">
+           <li <% if (page_name=='department') { %>class="active" <% } %> >
                 <% if( locals.username =='admin') {%>
                     <a href="/department"><i class="fa fa-fw fa-building"></i> Department <i class="fa fa-fw"></i></a>
                 <% } else {%>
                     <a href="/department_com"><i class="fa fa-fw fa-building"></i> Department <i class="fa fa-fw"></i></a>
                 <% } %>
             </li>
-            <li class="">
+            <li <% if (page_name=='employee') { %>class="active" <% } %> >
                 <% if( locals.username =='admin') {%>
                     <a href="/employee"><i class="fa fa-fw fa-users"></i> Employee <i class="fa fa-fw"></i></a>
                 <% } else {%>
@@ -51,3 +51,4 @@
                 </div>
             </div>
         </nav>
+  
